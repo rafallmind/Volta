@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">VoltaGang</string>
+    <string name="app_name">Volta</string>
     <string name="avg1">You are below average results on this category. Move on you can improve yourself !</string>
     <string name="avg2">You may be able to be better than average with a little effort !</string>
     <string name="avg3">You are in the average results. Try to stand out by surpassing yourself</string>
@@ -25,4 +25,8 @@
     <string name="feelcmp3">Your efforts are consistent, try to get better results !</string>
     <string name="feelcmp4">You\'ve made a less intensive session, if your results are similar to the last session, surpass yourself to improve !</string>
     <string name="feelcmp5">You\'ve managed to make a less intensive session, try to improve your results by making a more intensive session !</string>
+    <string name="last_session">My last session</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="feeling">Feeling</string>
 </resources>
