@@ -6,49 +6,40 @@ import java.util.List;
 
 public class Session {
 
-    private Date date;
-    private float temps;
-    private int ressenti;
+    private String date;
+    private String temps;
+    private String ressenti;
 
     private List<Session> session = new ArrayList<>();
 
 
-    public Session(Date date, float temps, int ressenti) {
+    public Session(String date, String temps, String ressenti) {
         this.date = date;
         this.temps = temps;
         this.ressenti = ressenti;
     }
 
-
-    public List<Session> getSession() {
-        return session;
-    }
-
-    public void setSession(List<Session> session) {
-        this.session = session;
-    }
-
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public float getTemps() {
+    public String getTemps() {
         return temps;
     }
 
-    public void setTemps(float temps) {
+    public void setTemps(String temps) {
         this.temps = temps;
     }
 
-    public int getRessenti() {
+    public String getRessenti() {
         return ressenti;
     }
 
-    public void setRessenti(int ressenti) {
+    public void setRessenti(String ressenti) {
         this.ressenti = ressenti;
     }
 }
