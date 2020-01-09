@@ -37,9 +37,9 @@ import java.util.HashMap;
 public class AnalyseSportActivity extends AppCompatActivity {
 
     //Composants XML
-    private TextView laDate, leTemps, leRessenti;
+    private TextView laDate, leTemps, leRessenti, TvTip;
     private EditText addTemps,addRessenti;
-    private Button btnAdd;
+    private Button btnAdd,btnTip;
     private SeekBar seekBar;
 
     private Bundle b;
@@ -67,7 +67,8 @@ public class AnalyseSportActivity extends AppCompatActivity {
         addRessenti = findViewById(R.id.addFeeling);
         btnAdd = findViewById(R.id.btnAdd);
         seekBar = findViewById(R.id.seekBar);
-
+        btnTip = findViewById(R.id.btnTip);
+        TvTip = findViewById(R.id.TvTip);
         //force input type
         leTemps.setInputType(InputType.TYPE_CLASS_NUMBER);
         leRessenti.setInputType(InputType.TYPE_CLASS_NUMBER);
@@ -136,9 +137,46 @@ public class AnalyseSportActivity extends AppCompatActivity {
             }
 
         });
-        
 
-        //ajout du sport
+
+        btnTip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mRef.child("users").child(mAuth.getCurrentUser().getUid()).child("mesSports").child(key).child("mesSessions").limitToLast(2).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot){
+                        int z=0;
+                        for(DataSnapshot child : dataSnapshot.getChildren()){
+                            if(child.exists()){
+                                z++;
+                                laDate.setText(child.child("date").getValue().toString());
+                                leTemps.setText(child.child("temps").getValue().toString());
+                                leRessenti.setText(child.child("ressenti").getValue().toString());
+                            }
+
+                        }
+
+                        if(z<2){
+                            TvTip.setText("Not enough data");
+                        }else{
+                            TvTip.setText("ouiiiii le conseil merci trop bien");
+                        }
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+            }
+        });
+
+
+        //ajout de la perf
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -179,7 +217,7 @@ public class AnalyseSportActivity extends AppCompatActivity {
                     addTemps.setError("Veuillez remplir ce champ");
                     addTemps.setFocusable(true);
                 }
-                else if(ressenti.isEmpty() || Integer.parseInt(addRessenti.getText().toString()) >10){
+                else if(ressenti.isEmpty() || Integer.parseInt(addRessenti.getText().toString()) >9){
                     addRessenti.setError("Veuillez remplir ce champ avec une valeur adpatée");
                     addRessenti.setFocusable(true);
                 }

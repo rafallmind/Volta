@@ -115,7 +115,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
-                android:hint="Ressenti /10"
+                android:hint="Ressenti /9"
                 android:inputType="number"
                 android:textSize="24sp" />
         </LinearLayout>
@@ -125,7 +125,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:max="10"
+            android:max="9"
             android:progress="1" />
 
         <Button
@@ -135,6 +135,20 @@
             android:layout_weight="1"
             android:text="Ajouter ma performance"
             android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/btnTip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Demander conseil"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/TvTip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
     </LinearLayout>
 
