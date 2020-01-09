@@ -7,9 +7,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,14 +29,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 public class AnalyseSportActivity extends AppCompatActivity {
 
     //Composants XML
     private TextView laDate, leTemps, leRessenti;
-    private EditText addDate,addTemps,addRessenti;
+    private EditText addTemps,addRessenti;
     private Button btnAdd;
+    private SeekBar seekBar;
 
     private Bundle b;
     private String key;
@@ -49,14 +57,20 @@ public class AnalyseSportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.session);
 
+        mContext =this.getApplicationContext();
+
         //Initialisation des composants du XML associés
         laDate = findViewById(R.id.laDate);
         leTemps = findViewById(R.id.leTemps);
         leRessenti = findViewById(R.id.leRessenti);
-        addDate = findViewById(R.id.addDate);
         addTemps = findViewById(R.id.addTime);
         addRessenti = findViewById(R.id.addFeeling);
         btnAdd = findViewById(R.id.btnAdd);
+        seekBar = findViewById(R.id.seekBar);
+
+        //force input type
+        leTemps.setInputType(InputType.TYPE_CLASS_NUMBER);
+        leRessenti.setInputType(InputType.TYPE_CLASS_NUMBER);
 
         //Ca c'est stylé
         final ProgressDialog progressDialog = new ProgressDialog(this);
@@ -96,24 +110,77 @@ public class AnalyseSportActivity extends AppCompatActivity {
         });
 
 
+        this.seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progress = 0;
+
+            // When Progress value changed.
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progressValue, boolean fromUser) {
+                progress = progressValue;
+                addRessenti.setText(progressValue+"");
+
+            }
+
+            // Notification that the user has started a touch gesture.
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                Log.i("start", "Started tracking seekbar");
+                Toast.makeText(getApplicationContext(), "Started tracking seekbar", Toast.LENGTH_SHORT).show();
+            }
+
+            // Notification that the user has finished a touch gesture
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                addRessenti.setText(progress + "");
+
+            }
+
+        });
+        
+
         //ajout du sport
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String date = addDate.getText().toString();
+
+                Calendar rightNow = Calendar.getInstance();
+
+
+                final int jour = rightNow.get(Calendar.DAY_OF_MONTH);
+                final int mois = rightNow.get(Calendar.MONTH) + 1;
+                final int annee = rightNow.get(Calendar.YEAR);
+
+
+                String jourr, moiss;
+
+
+                if(jour<10){
+                     jourr = "0"+jour;
+                }else{
+                     jourr=jour+"";
+                }
+
+                if(jour<10){
+                     moiss = "0"+mois;
+                }else{
+                     moiss=mois+"";
+                }
+
+
+
+                final String date = (jourr+"/"+moiss+"/"+annee);
+
+
                 final String temps = addTemps.getText().toString();
                 final String ressenti = addRessenti.getText().toString();
 
-                if(date.isEmpty()){
-                    addDate.setError("Veuillez remplir ce champ");
-                    addDate.setFocusable(true);
-                }
-                else if(temps.isEmpty()){
+
+                if(temps.isEmpty()){
                     addTemps.setError("Veuillez remplir ce champ");
                     addTemps.setFocusable(true);
                 }
-                else if(ressenti.isEmpty()){
-                    addRessenti.setError("Veuillez remplir ce champ");
+                else if(ressenti.isEmpty() || Integer.parseInt(addRessenti.getText().toString()) >10){
+                    addRessenti.setError("Veuillez remplir ce champ avec une valeur adpatée");
                     addRessenti.setFocusable(true);
                 }
                 else{
@@ -127,8 +194,8 @@ public class AnalyseSportActivity extends AppCompatActivity {
                     sessionMap.put(ref.push().getKey(), session);
                     ref.updateChildren(sessionMap);
 
-
-
+                    addTemps.getText().clear();
+                    addRessenti.getText().clear();
 
                     }
             }
