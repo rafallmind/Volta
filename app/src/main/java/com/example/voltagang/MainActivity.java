@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCentreButtonClick() {
                 navigationFragment.setCentreButtonSelectable(true);
+                ouvrirChrono();
             }
             @Override
             public void onItemClick(int itemIndex, String itemName) {
@@ -73,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void ouvrirChrono() {
+        Intent intent = new Intent(this,Chronom.class);
+        startActivity(intent);
     }
 
     private boolean loadFragment(Fragment fragment){
