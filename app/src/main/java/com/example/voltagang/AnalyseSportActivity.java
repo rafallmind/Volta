@@ -25,6 +25,7 @@ import com.example.voltagang.Model.Session;
 import com.example.voltagang.Model.TenKM;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -94,8 +95,9 @@ public class AnalyseSportActivity extends AppCompatActivity {
         //affichage derniere session
 
 
-        mRef.child("users").child(mAuth.getCurrentUser().getUid()).child("mesSports").child(key).child("mesSessions").limitToLast(1).addValueEventListener(new ValueEventListener() {
-            @Override
+
+        mRef.child("users").child(mAuth.getCurrentUser().getUid()).child("mesSports").child(key).child("mesSessions").addValueEventListener(new ValueEventListener() {
+        @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot){
                 for(DataSnapshot child : dataSnapshot.getChildren()){
                     if(child.exists()){
@@ -146,169 +148,169 @@ public class AnalyseSportActivity extends AppCompatActivity {
         btnTip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("Test : ", "Avant  permeir test");
-
-                mRef.child("users").child(mAuth.getCurrentUser().getUid()).child("mesSports").child(key).child("mesSessions").limitToLast(2).addValueEventListener(new ValueEventListener() {
+                mRef.child("users");
+                mRef.child(mAuth.getCurrentUser().getUid());
+                mRef.child("mesSports");
+                mRef.child(key);
+                mRef.child("mesSessions");
+                mRef.addValueEventListener(new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot){
-                        int z=0;
-                         List<Session> list  = new ArrayList<>();
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        int z = 0;
+                        List<Session> list = new ArrayList<>();
 
-                        for(DataSnapshot child : dataSnapshot.getChildren()){
-                            if(child.exists()){
+                        for (DataSnapshot child : dataSnapshot.getChildren()) {
+                            if (child.exists()) {
                                 z++;
                                 laDate.setText("Date: " + child.child("date").getValue().toString());
                                 leTemps.setText("Time: " + child.child("temps").getValue().toString());
                                 leRessenti.setText("Feeling: " + child.child("ressenti").getValue().toString());
-                                Session cons = new Session(child.child("date").getValue().toString(),child.child("temps").getValue().toString(),child.child("ressenti").getValue().toString());
+                                Session cons = new Session();
+                                cons.setDate(child.child("date").getValue().toString());
+                                cons.setRessenti(child.child("ressenti").getValue().toString());
+                                cons.setTemps(child.child("temps").getValue().toString());
                                 list.add(cons);
                             }
 
                         }
-                        if(z<2){
+                        if (z < 2) {
                             TvTip.setText("Not enough data");
-                        }else{
+                        } else {
                             //ici on impl les conseils
                             TvTip.setText("ouiiiii le conseil merci trop bien");
                             Session last = null;
                             Session last2 = null;
-                            for(Session cons : list){
-                                if(last == null){
+                            for (Session cons : list) {
+                                if (last == null) {
                                     last = cons;
-                                }
-                                else if( last == null){
+                                } else if (last == null) {
                                     last2 = cons;
-                                }
-                                else{
-                                    if(Integer.getInteger(cons.getDate()) > Integer.getInteger(last.getDate())){
+                                } else if (last != null && last2 != null && cons != null) {
+                                    if (Integer.getInteger(cons.getDate()) > Integer.getInteger(last.getDate())) {
                                         last = cons;
-                                    }
-                                    else if(Integer.getInteger(cons.getDate()) > Integer.getInteger(last2.getDate())){
+                                    } else if (Integer.getInteger(cons.getDate()) > Integer.getInteger(last2.getDate())) {
                                         last2 = cons;
                                     }
-                                }
-                                if(Integer.getInteger(last.getDate()) < Integer.getInteger(last2.getDate())){
-                                    Session buf = last;
-                                    last = last2;
-                                    last2 = buf;
-                                }
-                                final Session finalLast = last;
-                                final Session finalLast1 = last2;
-                                Log.i("Test : ", "Avant test");
-                                mRef.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                        Gender gender = dataSnapshot.getValue(Gender.class);
-                                        int perf = new Integer(finalLast.getTemps());
-                                        switch(key){
-                                            case "Marathon" :
-                                                TvTip.setText(Marathon.comparerPerformance(gender,perf,new Integer(finalLast.getRessenti()),new Integer(finalLast1.getTemps()),new Integer(finalLast1.getRessenti())));
-                                                break;
-                                            case "10KM":
-                                                TvTip.setText(TenKM.comparerPerformance(gender,perf,new Integer(finalLast.getRessenti()),new Integer(finalLast1.getTemps()),new Integer(finalLast1.getRessenti())));
-                                                break;
-                                            case "2,5KM" :
-                                                break;
-                                            case  "5KM" :
-                                                TvTip.setText(FiveKM.comparerPerformance(gender,perf,new Integer(finalLast.getRessenti()),new Integer(finalLast1.getTemps()),new Integer(finalLast1.getRessenti())));
-                                                break;
-                                            case "20KM":
-                                                break;
-                                            case "Semi-Marathon" :
-                                                TvTip.setText(SemiMarathon.comparerPerformance(gender,perf,new Integer(finalLast.getRessenti()),new Integer(finalLast1.getTemps()),new Integer(finalLast1.getRessenti())));
-                                                break;
-                                            case "50KM":
-                                                break;
-                                        }
-
+                                    if (Integer.getInteger(last.getDate()) < Integer.getInteger(last2.getDate())) {
+                                        Session buf = last;
+                                        last = last2;
+                                        last2 = buf;
                                     }
-
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                                    }
-                                });
-
+                                }
+                            }
+                            if(last == null){
+                                Log.i("null", "last est null");
+                            }
+                            if(last2 == null){
+                                Log.i("null", "last2 est null");
                             }
 
+                            final Session finalLast = last;
+                            final Session finalLast1 = last2;
+                            mRef.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    Gender gender = dataSnapshot.getValue(Gender.class);
+                                    int perf = new Integer(finalLast.getTemps());
+                                    switch (key) {
+                                        case "Marathon":
+                                            TvTip.setText(Marathon.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
+                                            break;
+                                        case "10KM":
+                                            TvTip.setText(TenKM.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
+                                            break;
+                                        case "2,5KM":
+                                            break;
+                                        case "5KM":
+                                            TvTip.setText(FiveKM.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
+                                            break;
+                                        case "20KM":
+                                            break;
+                                        case "Semi-Marathon":
+                                            TvTip.setText(SemiMarathon.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
+                                            break;
+                                        case "50KM":
+                                            break;
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+
+                            });
                         }
-
-
                     }
+
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
                     }
                 });
 
-            }
-        });
+
+                //ajout de la perf
+                btnAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Calendar rightNow = Calendar.getInstance();
 
 
-        //ajout de la perf
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Calendar rightNow = Calendar.getInstance();
+                        final int jour = rightNow.get(Calendar.DAY_OF_MONTH);
+                        final int mois = rightNow.get(Calendar.MONTH) + 1;
+                        final int annee = rightNow.get(Calendar.YEAR);
 
 
-                final int jour = rightNow.get(Calendar.DAY_OF_MONTH);
-                final int mois = rightNow.get(Calendar.MONTH) + 1;
-                final int annee = rightNow.get(Calendar.YEAR);
+                        String jourr, moiss;
 
 
-                String jourr, moiss;
+                        if (jour < 10) {
+                            jourr = "0" + jour;
+                        } else {
+                            jourr = jour + "";
+                        }
+
+                        if (jour < 10) {
+                            moiss = "0" + mois;
+                        } else {
+                            moiss = mois + "";
+                        }
 
 
-                if(jour<10){
-                     jourr = "0"+jour;
-                }else{
-                     jourr=jour+"";
-                }
-
-                if(jour<10){
-                     moiss = "0"+mois;
-                }else{
-                     moiss=mois+"";
-                }
+                        final String date = (jourr + "/" + moiss + "/" + annee);
 
 
-
-                final String date = (jourr+"/"+moiss+"/"+annee);
-
-
-                final String temps = addTemps.getText().toString();
-                final String ressenti = addRessenti.getText().toString();
+                        final String temps = addTemps.getText().toString();
+                        final String ressenti = addRessenti.getText().toString();
 
 
-                if(temps.isEmpty()){
-                    addTemps.setError("Veuillez remplir ce champ");
-                    addTemps.setFocusable(true);
-                }
-                else if(ressenti.isEmpty() || Integer.parseInt(addRessenti.getText().toString()) >9){
-                    addRessenti.setError("Veuillez remplir ce champ avec une valeur adpatée");
-                    addRessenti.setFocusable(true);
-                }
-                else{
-                    Session session = new Session(
-                            date,
-                            temps,
-                            ressenti
-                    );
-                    HashMap sessionMap = new HashMap();
-                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid()).child("mesSports").child(key).child("mesSessions");
-                    sessionMap.put(ref.push().getKey(), session);
-                    ref.updateChildren(sessionMap);
+                        if (temps.isEmpty()) {
+                            addTemps.setError("Veuillez remplir ce champ");
+                            addTemps.setFocusable(true);
+                        } else if (ressenti.isEmpty() || Integer.parseInt(addRessenti.getText().toString()) > 9) {
+                            addRessenti.setError("Veuillez remplir ce champ avec une valeur adpatée");
+                            addRessenti.setFocusable(true);
+                        } else {
+                            Session session = new Session(
+                                    date,
+                                    temps,
+                                    ressenti
+                            );
+                            HashMap sessionMap = new HashMap();
+                            DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid()).child("mesSports").child(key).child("mesSessions");
+                            sessionMap.put(ref.push().getKey(), session);
+                            ref.updateChildren(sessionMap);
 
-                    addTemps.getText().clear();
-                    addRessenti.getText().clear();
+                            addTemps.getText().clear();
+                            addRessenti.getText().clear();
 
+                        }
                     }
+                });
             }
         });
-
 
     }
 

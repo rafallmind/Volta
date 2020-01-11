@@ -12,6 +12,9 @@ public class Session {
 
     private List<Session> session = new ArrayList<>();
 
+    public Session(){
+
+    }
 
     public Session(String date, String temps, String ressenti) {
         this.date = date;
