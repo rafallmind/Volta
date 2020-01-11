@@ -1,0 +1,101 @@
+{
+  "project_info": {
+    "project_number": "633615408052",
+    "firebase_url": "https://volta-47230.firebaseio.com",
+    "project_id": "volta-47230",
+    "storage_bucket": "volta-47230.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633615408052:android:0d82f39c1004e1dd05f0e1",
+        "android_client_info": {
+          "package_name": "com.example.volta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633615408052-f8dg074hk8lv1pa4vps6g6v2s383381r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.volta",
+            "certificate_hash": "7a37437e40d0f624bfefcd189ce39826598980cf"
+          }
+        },
+        {
+          "client_id": "633615408052-gdeurbcp3e9nal4j51lct2a4dj7lniku.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.volta",
+            "certificate_hash": "0b0811ecc29edc999bc9de1004e9ff02cf8fb335"
+          }
+        },
+        {
+          "client_id": "633615408052-7cc4irt5dq7ufiks58f58thtrp3nf2mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtlglBqlcJJw3VnIieN0lQ-nQSvCp24vM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633615408052-7cc4irt5dq7ufiks58f58thtrp3nf2mv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:633615408052:android:b18e3bc570c1146d05f0e1",
+        "android_client_info": {
+          "package_name": "com.example.voltagang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "633615408052-v85qahondsf8qapmeeqkrirja8pi7jqd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.voltagang",
+            "certificate_hash": "eb3f98889971a0b31520e35ee1cca4bac0663b6c"
+          }
+        },
+        {
+          "client_id": "633615408052-2tgsmr5ndcuc6jbr5f5o563doln28m94.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.voltagang",
+            "certificate_hash": "81bd7b620f084500d7a87ea2937e6d1a567f92b8"
+          }
+        },
+        {
+          "client_id": "633615408052-7cc4irt5dq7ufiks58f58thtrp3nf2mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtlglBqlcJJw3VnIieN0lQ-nQSvCp24vM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "633615408052-7cc4irt5dq7ufiks58f58thtrp3nf2mv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

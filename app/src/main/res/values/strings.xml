@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">Volta</string>
+
+    <string name="avg1">You are below average results on this category. Move on you can improve yourself !</string>
+    <string name="avg2">You may be able to be better than average with a little effort !</string>
+    <string name="avg3">You are in the average results. Try to stand out by surpassing yourself</string>
+    <string name="avg4">Your results are quite good, keep going on !</string>
+    <string name="avg5">You are doing way better than average people, congrats !</string>
+    <string name="perf1">Unfortunately, you made worse than your last session. Don\'t let yourself down !</string>
+    <string name="perf2">You should be able to improve. Don\'t let bad habits set up !</string>
+    <string name="perf3">A small improvement has been seen, keep going on !</string>
+    <string name="perf4">You improved your skills for sure, congrats !</string>
+    <string name="perf5">You can be proud of you, you smashed your last session results !</string>
+    <string name="feel0">You should go for a more intensive session next time, you will get better results !</string>
+    <string name="feel1">You should go for a more intensive session next time, you will get better results !</string>
+    <string name="feel2">Try to run faster as you see the finish line, you can definetly save time</string>
+    <string name="feel3">Try to run faster as you see the finish line, you can definetly save time</string>
+    <string name="feel4">A successful sport session should make you feel like this ! Try to get the same results and feel better before increase intensity !</string>
+    <string name="feel5">A successful sport session should make you feel like this ! Try to get the same results and feel better before increase intensity !</string>
+    <string name="feel6">You should start your session by running slower, you will be able to stay more consistent !</string>
+    <string name="feel7">You should start your session by running slower, you will be able to stay more consistent !</string>
+    <string name="feel8">Try to breathe more often when you\'re running, you\'ll feel better !</string>
+    <string name="feel9">Try to breathe more often when you\'re running, you\'ll feel better !</string>
+    <string name="feelcmp1">You\'ve made a more intensive session, try to figure out if it was worth it !</string>
+    <string name="feelcmp2">Your session was a bit more intensive, was it positive ?</string>
+    <string name="feelcmp3">Your efforts are consistent, try to get better results !</string>
+    <string name="feelcmp4">You\'ve made a less intensive session, if your results are similar to the last session, surpass yourself to improve !</string>
+    <string name="feelcmp5">You\'ve managed to make a less intensive session, try to improve your results by making a more intensive session !</string>
+
+    <string name="last_session">My last session</string>
+    <string name="session">SESSION</string>
+    <string name="date">Date : </string>
+    <string name="time">Time : </string>
+    <string name="feeling">Feeling : </string>
+    <string name="timehint">Duration (in minutes)</string>
+    <string name="feelinghint">Feeling (from 0 to 9)</string>
+    <string name="asktips">Ask for tips</string>
+    <string name="addperf">Add performance</string>
+
+    <string name="signin">SIGN IN</string>
+    <string name="signinpage">Please enter your email and password to connect</string>
+    <string name="signup">SIGN UP</string>
+    <string name="signuppage">Please, complete this form to sign up</string>
+
+    <string name="welcome">WELCOME ON VOLTA</string>
+    <string name="welcome2">please sign in or sign up</string>
+
+    <string name="emailhint">Email</string>
+    <string name="passwordhint">Password</string>
+    <string name="pseudohint">Name</string>
+    <string name="agehint">Age</string>
+
+    <string name="deb1">Beginner 1</string>
+    <string name="deb2">Beginner 2</string>
+    <string name="inter1">Intermediary 1</string>
+    <string name="inter2">Intermediary 2</string>
+    <string name="inter3">Intermediary 3</string>
+    <string name="exp1">Expert 1</string>
+    <string name="exp2">Expert 2</string>
+
+    <string name="chronostart">START</string>
+    <string name="chronopause">PAUSE</string>
+    <string name="chronoreset">RESET</string>
+    <string name="chronotext">Press START to launch the chronometer</string>
+
+    <string name="textsettings">Choose the langage of the app</string>
+
+</resources>
