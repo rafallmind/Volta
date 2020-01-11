@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Volta</string>
+
     <string name="avg1">You are below average results on this category. Move on you can improve yourself !</string>
     <string name="avg2">You may be able to be better than average with a little effort !</string>
     <string name="avg3">You are in the average results. Try to stand out by surpassing yourself</string>
@@ -25,8 +26,41 @@
     <string name="feelcmp3">Your efforts are consistent, try to get better results !</string>
     <string name="feelcmp4">You\'ve made a less intensive session, if your results are similar to the last session, surpass yourself to improve !</string>
     <string name="feelcmp5">You\'ve managed to make a less intensive session, try to improve your results by making a more intensive session !</string>
+
     <string name="last_session">My last session</string>
-    <string name="date">Date</string>
-    <string name="time">Time</string>
-    <string name="feeling">Feeling</string>
+    <string name="session">SESSION</string>
+    <string name="date">Date : </string>
+    <string name="time">Time : </string>
+    <string name="feeling">Feeling : </string>
+    <string name="timehint">Duration (in minutes)</string>
+    <string name="feelinghint">Feeling (from 0 to 9)</string>
+    <string name="asktips">Ask for tips</string>
+    <string name="addperf">Add performance</string>
+
+    <string name="signin">SIGN IN</string>
+    <string name="signinpage">Please enter your email and password to connect</string>
+    <string name="signup">SIGN UP</string>
+    <string name="signuppage">Please, complete this form to sign up</string>
+
+    <string name="welcome">WELCOME ON VOLTA</string>
+    <string name="welcome2">please sign in or sign up</string>
+
+    <string name="emailhint">Email</string>
+    <string name="passwordhint">Password</string>
+    <string name="pseudohint">Name</string>
+    <string name="agehint">Age</string>
+
+    <string name="deb1">Beginner 1</string>
+    <string name="deb2">Beginner 2</string>
+    <string name="inter1">Intermediary 1</string>
+    <string name="inter2">Intermediary 2</string>
+    <string name="inter3">Intermediary 3</string>
+    <string name="exp1">Expert 1</string>
+    <string name="exp2">Expert 2</string>
+
+    <string name="chronostart">START</string>
+    <string name="chronopause">PAUSE</string>
+    <string name="chronoreset">RESET</string>
+    <string name="chronotext">Press START to launch the chronometer</string>
+
 </resources>

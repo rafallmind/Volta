@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 
 import com.example.voltagang.Fragment.AddSportFragment;
 import com.example.voltagang.Fragment.AnalyseFragment;
+import com.example.voltagang.Fragment.ChronoFragment;
 import com.example.voltagang.Fragment.ProfilFragment;
 import com.example.voltagang.Fragment.SettingsFragment;
 import com.luseen.spacenavigation.SpaceItem;
@@ -41,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCentreButtonClick() {
                 navigationFragment.setCentreButtonSelectable(true);
-                ouvrirChrono();
+                fragment = new ChronoFragment();
+                loadFragment(fragment);
             }
             @Override
             public void onItemClick(int itemIndex, String itemName) {
@@ -74,11 +76,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    }
-
-    private void ouvrirChrono() {
-        Intent intent = new Intent(this,Chronom.class);
-        startActivity(intent);
     }
 
     private boolean loadFragment(Fragment fragment){

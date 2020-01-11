@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/sessions"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/orange2"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -11,114 +12,75 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/last_session"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="36sp" />
 
-    <LinearLayout
-        android:id="@+id/dates"
+    <TextView
+        android:id="@+id/laDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/leTemps"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/leRessenti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/addTime"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/TvDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/date"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/laDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="24sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/temps"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/TvTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/time"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/leTemps"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="24sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ressentis"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/TvFeeling"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/feeling"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/leRessenti"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="24sp" />
-
-    </LinearLayout>
+        android:layout_height="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_weight="1"
+        android:background="@drawable/customedittext"
+        android:ems="10"
+        android:hint="@string/timehint"
+        android:inputType="number"
+        android:paddingLeft="15dp"
+        android:textColor="@color/lightorange"
+        android:textColorHint="@color/lightorange"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:orientation="vertical">
 
-        <LinearLayout
+        <EditText
+            android:id="@+id/addFeeling"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="35dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="30dp"
             android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/addTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Temps en minutes"
-                android:inputType="number"
-                android:textSize="24sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-
-            <EditText
-                android:id="@+id/addFeeling"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Ressenti /9"
-                android:inputType="number"
-                android:textSize="24sp" />
-        </LinearLayout>
+            android:background="@drawable/customedittext"
+            android:ems="10"
+            android:hint="@string/feelinghint"
+            android:inputType="number"
+            android:paddingLeft="15dp"
+            android:textColor="@color/lightorange"
+            android:textColorHint="@color/lightorange"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
         <SeekBar
             android:id="@+id/seekBar"
@@ -126,30 +88,48 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:max="9"
-            android:progress="1" />
-
-        <Button
-            android:id="@+id/btnAdd"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Ajouter ma performance"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/btnTip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Demander conseil"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/TvTip"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
+            android:progress="1"
+            android:thumbTint="@color/white"
+            android:progressTint="@color/black"
+            android:layout_marginBottom="20dp"/>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        android:text="@string/addperf"
+        android:textSize="24sp"
+        android:background="@drawable/sessionbtn2"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"/>
+
+
+    <Button
+        android:id="@+id/btnTip"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_weight="1"
+        android:text="@string/asktips"
+        android:textSize="24sp"
+        android:background="@drawable/sessionbtn"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:id="@+id/TvTip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+
 
 </LinearLayout>

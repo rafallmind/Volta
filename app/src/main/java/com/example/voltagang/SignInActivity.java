@@ -50,7 +50,7 @@ public class SignInActivity extends AppCompatActivity {
 
         //Ca c'est stylé
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Chargement...");
+        progressDialog.setMessage("Loading...");
 
         //Initialisation des composants du XML associés
         emailSignIn = findViewById(R.id.emailSignIn);
