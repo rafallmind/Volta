@@ -160,6 +160,7 @@ public class AnalyseSportActivity extends AppCompatActivity {
                         if(z<2){
                             TvTip.setText("Not enough data");
                         }else{
+                            //ici on impl les conseils
                             TvTip.setText("ouiiiii le conseil merci trop bien");
                         }
 
