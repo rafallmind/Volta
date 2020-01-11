@@ -65,6 +65,7 @@ public class AnalyseSportActivity extends AppCompatActivity {
         leRessenti = findViewById(R.id.leRessenti);
         addTemps = findViewById(R.id.addTime);
         addRessenti = findViewById(R.id.addFeeling);
+        addRessenti.setActivated(false);
         btnAdd = findViewById(R.id.btnAdd);
         seekBar = findViewById(R.id.seekBar);
         btnTip = findViewById(R.id.btnTip);
@@ -94,9 +95,9 @@ public class AnalyseSportActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot){
                 for(DataSnapshot child : dataSnapshot.getChildren()){
                     if(child.exists()){
-                        laDate.setText(child.child("date").getValue().toString());
-                        leTemps.setText(child.child("temps").getValue().toString());
-                        leRessenti.setText(child.child("ressenti").getValue().toString());
+                        laDate.setText("Date: " + child.child("date").getValue().toString());
+                        leTemps.setText("Time: " + child.child("temps").getValue().toString());
+                        leRessenti.setText("Feeling: " + child.child("ressenti").getValue().toString());
                     }
 
                 }
@@ -126,7 +127,6 @@ public class AnalyseSportActivity extends AppCompatActivity {
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
                 Log.i("start", "Started tracking seekbar");
-                Toast.makeText(getApplicationContext(), "Started tracking seekbar", Toast.LENGTH_SHORT).show();
             }
 
             // Notification that the user has finished a touch gesture
@@ -150,9 +150,9 @@ public class AnalyseSportActivity extends AppCompatActivity {
                         for(DataSnapshot child : dataSnapshot.getChildren()){
                             if(child.exists()){
                                 z++;
-                                laDate.setText(child.child("date").getValue().toString());
-                                leTemps.setText(child.child("temps").getValue().toString());
-                                leRessenti.setText(child.child("ressenti").getValue().toString());
+                                laDate.setText("Date: " + child.child("date").getValue().toString());
+                                leTemps.setText("Time: " + child.child("temps").getValue().toString());
+                                leRessenti.setText("Feeling: " + child.child("ressenti").getValue().toString());
                             }
 
                         }

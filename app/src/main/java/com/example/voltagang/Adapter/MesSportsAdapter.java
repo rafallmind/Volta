@@ -1,11 +1,13 @@
 package com.example.voltagang.Adapter;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -47,6 +49,8 @@ public class MesSportsAdapter extends RecyclerView.Adapter<MesSportsAdapter.MyVi
         LayoutInflater inflater = LayoutInflater.from(mContext);
         View sportView = inflater.inflate(R.layout.all_my_sport_display, parent, false);
 
+
+
         //Initialisation FireBase
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
@@ -62,10 +66,12 @@ public class MesSportsAdapter extends RecyclerView.Adapter<MesSportsAdapter.MyVi
         holder.sportTitle.setText(sport.getName());
         holder.sportSubtile.setText(sport.getDescription());
 
-        holder.sportLinear.setOnClickListener(new View.OnClickListener() {
+        holder.buttonSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 b.putString("key", sport.getName());
+                final ProgressDialog progressDialog = new ProgressDialog(mContext);
+                progressDialog.setMessage("Loading...");
                 intent.putExtras(b);
                 mContext.startActivity(intent);
             }
@@ -86,6 +92,7 @@ public class MesSportsAdapter extends RecyclerView.Adapter<MesSportsAdapter.MyVi
 
         public TextView sportTitle, sportSubtile;
         public LinearLayout sportLinear;
+        public Button buttonSession;
 
 
         public MyViewHolder(final View itemView) {
@@ -93,6 +100,7 @@ public class MesSportsAdapter extends RecyclerView.Adapter<MesSportsAdapter.MyVi
             sportTitle = (TextView) itemView.findViewById(R.id.titreMySportDisplay);
             sportSubtile = (TextView) itemView.findViewById(R.id.sousTitreMySportDisplay);
             sportLinear = (LinearLayout) itemView.findViewById(R.id.linearLayoutMySportDisplay);
+            buttonSession = (Button) itemView.findViewById(R.id.buttonsession);
         }
     }
 }
