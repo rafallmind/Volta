@@ -5,36 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FirstActivity"
-    android:background="@color/orange2">
+    android:background="@color/lightorange2">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/logowhite"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="20dp"/>
 
     <TextView
         android:id="@+id/welcometext"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:text="@string/welcome"
-        android:layout_marginTop="150dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginTop="200dp"
+        android:textStyle="bold"
         />
 
 
     <TextView
         android:id="@+id/welcometext2"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:text="@string/welcome2"
-        android:layout_marginTop="190dp"
-        android:layout_marginLeft="35dp"
+        android:layout_marginTop="240dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="150dp">
 
         <Button
             android:id="@+id/firstToSignIn"
@@ -44,7 +55,7 @@
             android:text="@string/signin"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="200dp"
             android:layout_marginLeft="50dp"/>
 
         <Button
@@ -55,7 +66,7 @@
             android:background="@drawable/btncustomsignup"
             android:textColor="@color/orange2"
             android:textSize="20sp"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="200dp"
             android:layout_marginLeft="40dp" />
 
     </LinearLayout>

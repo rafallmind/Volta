@@ -32,6 +32,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText pseudoSignUp, emailSignUp, passwordSignUp, ageSignUp;
     private ListView listeSignUp;
     private Button buttonSignUp;
+    private Button buttonSignIn;
 
     //Référence FireBase
     private FirebaseAuth mAuth;
@@ -58,6 +59,7 @@ public class SignUpActivity extends AppCompatActivity {
         ageSignUp = findViewById(R.id.ageSignUp);
         listeSignUp = findViewById(R.id.listeSignUp);
         buttonSignUp = findViewById(R.id.buttonSignUp);
+        buttonSignIn = findViewById(R.id.buttonSignIn);
 
         //Initialisation FireBase
         mAuth = FirebaseAuth.getInstance();
@@ -142,6 +144,13 @@ public class SignUpActivity extends AppCompatActivity {
                             });
                 }
 
+            }
+        });
+
+        buttonSignIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUpActivity.this, SignInActivity.class));
             }
         });
 
