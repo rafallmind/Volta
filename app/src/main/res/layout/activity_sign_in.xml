@@ -52,12 +52,22 @@
             />
 
         <Button
-            android:id="@+id/buttonSignIn"
+        android:id="@+id/buttonSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/signin"
+        android:background="@drawable/btncustom"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"/>
+
+        <Button
+            android:id="@+id/buttonSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/signin"
-            android:background="@drawable/btncustom"
+            android:text="@string/signup"
+            android:background="@drawable/btncustomsignup"
             android:layout_marginRight="30dp"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"/>
     </LinearLayout>
 </RelativeLayout>

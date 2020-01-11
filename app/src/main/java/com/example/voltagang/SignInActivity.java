@@ -26,6 +26,7 @@ public class SignInActivity extends AppCompatActivity {
     // Composants du XML
     private EditText emailSignIn, passwordSignIn;
     private Button buttonSignIn;
+    private Button buttonSignUp;
 
     //Référence FireBase
     private FirebaseAuth mAuth;
@@ -56,6 +57,7 @@ public class SignInActivity extends AppCompatActivity {
         emailSignIn = findViewById(R.id.emailSignIn);
         passwordSignIn = findViewById(R.id.passwordSignIn);
         buttonSignIn = findViewById(R.id.buttonSignIn);
+        buttonSignUp = findViewById(R.id.buttonSignUp);
 
         //Initialisation FireBase
         mAuth = FirebaseAuth.getInstance();
@@ -94,6 +96,13 @@ public class SignInActivity extends AppCompatActivity {
                                 }
                             });
                 }
+            }
+        });
+
+        buttonSignUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignInActivity.this, SignUpActivity.class));
             }
         });
 
