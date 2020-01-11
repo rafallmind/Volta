@@ -17,12 +17,16 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+<<<<<<< HEAD
 import com.example.voltagang.Model.FiveKM;
 import com.example.voltagang.Model.Gender;
 import com.example.voltagang.Model.Marathon;
 import com.example.voltagang.Model.SemiMarathon;
 import com.example.voltagang.Model.Session;
 import com.example.voltagang.Model.TenKM;
+=======
+import com.example.voltagang.Model.Session;
+>>>>>>> 3a41625f69e08f7d82cac63034afa56da1682e1b
 import com.example.voltagang.Model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,11 +39,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+=======
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+>>>>>>> 3a41625f69e08f7d82cac63034afa56da1682e1b
 
 public class AnalyseSportActivity extends AppCompatActivity {
 
@@ -149,20 +159,30 @@ public class AnalyseSportActivity extends AppCompatActivity {
         btnTip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
                 Log.i("Test : ", "Avant  permeir test");
+=======
+
+>>>>>>> 3a41625f69e08f7d82cac63034afa56da1682e1b
                 mRef.child("users").child(mAuth.getCurrentUser().getUid()).child("mesSports").child(key).child("mesSessions").limitToLast(2).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot){
                         int z=0;
+<<<<<<< HEAD
                         List<Session> list  = new ArrayList<>();
+=======
+>>>>>>> 3a41625f69e08f7d82cac63034afa56da1682e1b
                         for(DataSnapshot child : dataSnapshot.getChildren()){
                             if(child.exists()){
                                 z++;
                                 laDate.setText("Date: " + child.child("date").getValue().toString());
                                 leTemps.setText("Time: " + child.child("temps").getValue().toString());
                                 leRessenti.setText("Feeling: " + child.child("ressenti").getValue().toString());
+<<<<<<< HEAD
                                 Session cons = child.getValue(Session.class);
                                 list.add(cons);
+=======
+>>>>>>> 3a41625f69e08f7d82cac63034afa56da1682e1b
                             }
 
                         }
@@ -172,6 +192,7 @@ public class AnalyseSportActivity extends AppCompatActivity {
                         }else{
                             //ici on impl les conseils
                             TvTip.setText("ouiiiii le conseil merci trop bien");
+<<<<<<< HEAD
                             Session last = null;
                             Session last2 = null;
                             for(Session cons : list){
@@ -233,6 +254,8 @@ public class AnalyseSportActivity extends AppCompatActivity {
 
                             }
 
+=======
+>>>>>>> 3a41625f69e08f7d82cac63034afa56da1682e1b
                         }
 
 
