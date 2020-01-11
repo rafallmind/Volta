@@ -29,4 +29,12 @@
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="feeling">Feeling</string>
+    <string name="signin">SIGN IN</string>
+    <string name="signinpage">Please enter your email and password to connect</string>
+    <string name="signup">SIGN UP</string>
+    <string name="welcome">WELCOME ON VOLTA</string>
+    <string name="welcome2">please sign in or sign up</string>
+    <string name="emailhint">Email</string>
+    <string name="passwordhint">Password</string>
+
 </resources>

@@ -4,7 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignInActivity">
+    tools:context=".SignInActivity"
+    android:background="@color/orange2">
+
+    <TextView
+        android:id="@+id/textsignin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signinpage"
+        android:layout_marginTop="100dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:layout_marginLeft="40dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +29,13 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:hint="Email" />
+            android:hint="@string/emailhint"
+            android:layout_marginTop="150dp"
+            android:layout_marginBottom="10dp"
+            android:paddingLeft="30dp"
+            android:background="@drawable/customedittext"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"/>
 
         <EditText
             android:id="@+id/passwordSignIn"
@@ -25,12 +43,21 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
-            android:hint="Mot de passe" />
+            android:hint="@string/passwordhint"
+            android:background="@drawable/customedittext"
+            android:layout_marginBottom="30dp"
+            android:paddingLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            />
 
         <Button
             android:id="@+id/buttonSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Connexion" />
+            android:text="@string/signin"
+            android:background="@drawable/btncustom"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"/>
     </LinearLayout>
 </RelativeLayout>

@@ -4,8 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstActivity">
+    tools:context=".FirstActivity"
+    android:background="@color/orange2">
 
+
+    <TextView
+        android:id="@+id/welcometext"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:text="@string/welcome"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="30dp"
+        />
+
+
+    <TextView
+        android:id="@+id/welcometext2"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:text="@string/welcome2"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="35dp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,13 +40,24 @@
             android:id="@+id/firstToSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SignIn" />
+            android:background="@drawable/btncustom"
+            android:text="@string/signin"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="50dp"/>
 
         <Button
             android:id="@+id/firstToSignUp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SignUp" />
+            android:text="@string/signup"
+            android:background="@drawable/btncustomsignup"
+            android:textColor="@color/orange2"
+            android:textSize="20sp"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="40dp" />
+
     </LinearLayout>
 
 </RelativeLayout>
