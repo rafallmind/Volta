@@ -4,7 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".SignUpActivity"
+    android:background="@color/orange2">
+
+    <TextView
+        android:id="@+id/textsignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signuppage"
+        android:layout_marginTop="40dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:layout_marginLeft="60dp"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +30,13 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:hint="Pseudo"/>
+            android:hint="@string/pseudohint"
+            android:background="@drawable/customedittext"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="30dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="80dp"/>
 
         <EditText
             android:id="@+id/emailSignUp"
@@ -25,7 +44,12 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:hint="Email" />
+            android:hint="@string/emailhint"
+            android:background="@drawable/customedittext"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="30dp"
+            android:layout_marginBottom="15dp"/>
 
         <EditText
             android:id="@+id/passwordSignUp"
@@ -33,7 +57,13 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPassword"
-            android:hint="Mot de passe" />
+            android:hint="@string/passwordhint"
+            android:background="@drawable/customedittext"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="30dp"
+            android:layout_marginBottom="15dp"
+            />
 
         <EditText
             android:id="@+id/ageSignUp"
@@ -41,7 +71,12 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="date"
-            android:hint="Age" />
+            android:hint="@string/agehint"
+            android:background="@drawable/customedittext"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:paddingLeft="30dp"
+            android:layout_marginBottom="10dp"/>
 
         <ListView
             android:id="@+id/listeSignUp"
@@ -49,7 +84,7 @@
             android:layout_height="95dp"
             android:layout_gravity="center"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="20dp"
             android:background="@color/white"
             android:listSelector="@color/lightorange">
 
@@ -60,7 +95,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Inscription" />
+            android:text="@string/signup"
+            android:background="@drawable/btncustomsignup"
+            android:textColor="@color/lightorange"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"/>
 
 
     </LinearLayout>

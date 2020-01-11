@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Volta</string>
+
     <string name="avg1">You are below average results on this category. Move on you can improve yourself !</string>
     <string name="avg2">You may be able to be better than average with a little effort !</string>
     <string name="avg3">You are in the average results. Try to stand out by surpassing yourself</string>
@@ -29,12 +30,18 @@
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="feeling">Feeling</string>
+
     <string name="signin">SIGN IN</string>
     <string name="signinpage">Please enter your email and password to connect</string>
     <string name="signup">SIGN UP</string>
+    <string name="signuppage">Please, complete this form to sign up</string>
+
     <string name="welcome">WELCOME ON VOLTA</string>
     <string name="welcome2">please sign in or sign up</string>
+
     <string name="emailhint">Email</string>
     <string name="passwordhint">Password</string>
+    <string name="pseudohint">Name</string>
+    <string name="agehint">Age</string>
 
 </resources>

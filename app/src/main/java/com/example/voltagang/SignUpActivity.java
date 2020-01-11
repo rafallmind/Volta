@@ -49,7 +49,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         //Ca c'est stylé
         final ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Chargement...");
+        progressDialog.setMessage("Loading...");
 
         //Initialisation des composants du XML associés
         pseudoSignUp = findViewById(R.id.pseudoSignUp);
@@ -67,8 +67,8 @@ public class SignUpActivity extends AppCompatActivity {
 
         //Définition des différents sexes
         final ArrayList<String> listSexe = new ArrayList<>();
-        listSexe.add("Homme");
-        listSexe.add("Femme");
+        listSexe.add("Men");
+        listSexe.add("Women");
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listSexe);
         listeSignUp.setAdapter(arrayAdapter);
 
@@ -89,19 +89,19 @@ public class SignUpActivity extends AppCompatActivity {
                 final String age = ageSignUp.getText().toString();
 
                 if (pseudo.isEmpty()){
-                    pseudoSignUp.setError("Veuillez remplir ce champ");
+                    pseudoSignUp.setError("Please, complte this form");
                     pseudoSignUp.setFocusable(true);
                 }else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    emailSignUp.setError("Email invalide");
+                    emailSignUp.setError("Email not valid");
                     emailSignUp.setFocusable(true);
                 }else if(password.length()<6){
-                    passwordSignUp.setError("Mot de passe > 6");
+                    passwordSignUp.setError("password > 6");
                     passwordSignUp.setFocusable(true);
                 }else if(age.isEmpty()){
-                    ageSignUp.setError("Veuillez remplir ce champ");
+                    ageSignUp.setError("Please, complte this form");
                     ageSignUp.setFocusable(true);
                 }else if(mSexe == null){
-                    Toast.makeText(getApplicationContext(), "Veuillez choisir un sexe", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Please, choose a gender", Toast.LENGTH_LONG).show();
                 } else {
                     progressDialog.show();
                     mAuth.createUserWithEmailAndPassword(email, password)
