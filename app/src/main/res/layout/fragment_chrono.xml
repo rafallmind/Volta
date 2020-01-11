@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="120dp"
             android:id="@+id/chronotext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_below="@+id/chrono"
-            android:layout_marginTop="-350dp"
+            android:layout_marginTop="-280dp"
             android:layout_marginLeft="15dp"
             android:text="@string/chronostart"
             android:layout_marginRight="10dp"
@@ -52,7 +52,7 @@
             android:text="@string/chronopause"
             android:layout_below="@+id/chrono"
             android:layout_toRightOf="@+id/start"
-            android:layout_marginTop="-350dp"
+            android:layout_marginTop="-280dp"
             android:layout_marginLeft="10dp"
             android:background="@drawable/sessionbtn"/>
 
@@ -62,7 +62,7 @@
             android:layout_height="50dp"
             android:layout_below="@+id/chrono"
             android:layout_toRightOf="@+id/stop"
-            android:layout_marginTop="-350dp"
+            android:layout_marginTop="-280dp"
             android:layout_marginLeft="15dp"
             android:text="@string/chronoreset"
             android:layout_marginRight="15dp"

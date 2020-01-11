@@ -63,4 +63,6 @@
     <string name="chronoreset">RESET</string>
     <string name="chronotext">Press START to launch the chronometer</string>
 
+    <string name="textsettings">Choose the langage of the app</string>
+
 </resources>
