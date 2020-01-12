@@ -1,10 +1,21 @@
 package com.example.voltagang.Model;
 
 
+import android.content.Context;
+import android.content.res.Resources;
+
+import com.example.voltagang.AnalyseSportActivity;
 import com.example.voltagang.R;
 
+
 public class Stamina {
-	
+
+	private static Context context;
+
+	public Stamina(Context context) {
+		this.context = context;
+	}
+
 	public static String comparerPerformance(double userPerf, double avgPerf, int feeling, double lastPerf, int lastFeeling) {
 		int bilan = traiterPerfMoyenne(avgPerf, userPerf) +  traiterEvolutionPerf(lastPerf, userPerf) + traiterRessenti(feeling) + traiterEvolutionRessenti(lastFeeling, feeling);
 		System.out.println(bilan);
@@ -67,6 +78,8 @@ public class Stamina {
 		int unit = res - tens*10 - hundred*100 - thousand*1000;
 		switch(thousand) {
 		case 0:
+			//sb.append(Resources.getSystem().getString(android.R.string.avg1));
+
 			sb.append(context.getResources().getString(R.string.avg1));
 			break;
 		case 2:

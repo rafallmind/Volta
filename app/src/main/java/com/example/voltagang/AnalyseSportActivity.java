@@ -19,6 +19,7 @@ import com.example.voltagang.Model.Gender;
 import com.example.voltagang.Model.Marathon;
 import com.example.voltagang.Model.SemiMarathon;
 import com.example.voltagang.Model.Session;
+import com.example.voltagang.Model.Stamina;
 import com.example.voltagang.Model.TenKM;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -42,6 +43,8 @@ public class AnalyseSportActivity extends AppCompatActivity {
     private Bundle b;
     private String key;
 
+    private Stamina stamina;
+
     private Context mContext;
 
     //Référence FireBase
@@ -55,6 +58,8 @@ public class AnalyseSportActivity extends AppCompatActivity {
         setContentView(R.layout.session);
 
         mContext =this.getApplicationContext();
+
+        stamina = new Stamina(getApplicationContext());
 
         //Initialisation des composants du XML associés
         laDate = findViewById(R.id.laDate);
@@ -237,65 +242,67 @@ public class AnalyseSportActivity extends AppCompatActivity {
                 });
 
 
-                //ajout de la perf
-                btnAdd.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
 
-                        Calendar rightNow = Calendar.getInstance();
+            }
+        });
 
+        //ajout de la perf
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-                        final int jour = rightNow.get(Calendar.DAY_OF_MONTH);
-                        final int mois = rightNow.get(Calendar.MONTH) + 1;
-                        final int annee = rightNow.get(Calendar.YEAR);
-
-
-                        String jourr, moiss;
+                Calendar rightNow = Calendar.getInstance();
 
 
-                        if (jour < 10) {
-                            jourr = "0" + jour;
-                        } else {
-                            jourr = jour + "";
-                        }
-
-                        if (jour < 10) {
-                            moiss = "0" + mois;
-                        } else {
-                            moiss = mois + "";
-                        }
+                final int jour = rightNow.get(Calendar.DAY_OF_MONTH);
+                final int mois = rightNow.get(Calendar.MONTH) + 1;
+                final int annee = rightNow.get(Calendar.YEAR);
 
 
-                        final String date = (jourr + "/" + moiss + "/" + annee);
+                String jourr, moiss;
 
 
-                        final String temps = addTemps.getText().toString();
-                        final String ressenti = addRessenti.getText().toString();
+                if (jour < 10) {
+                    jourr = "0" + jour;
+                } else {
+                    jourr = jour + "";
+                }
+
+                if (jour < 10) {
+                    moiss = "0" + mois;
+                } else {
+                    moiss = mois + "";
+                }
 
 
-                        if (temps.isEmpty()) {
-                            addTemps.setError("Veuillez remplir ce champ");
-                            addTemps.setFocusable(true);
-                        } else if (ressenti.isEmpty() || Integer.parseInt(addRessenti.getText().toString()) > 9) {
-                            addRessenti.setError("Veuillez remplir ce champ avec une valeur adpatée");
-                            addRessenti.setFocusable(true);
-                        } else {
-                            Session session = new Session(
-                                    date,
-                                    temps,
-                                    ressenti
-                            );
-                            HashMap sessionMap = new HashMap();
-                            DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid()).child("mesSports").child(key).child("mesSessions");
-                            sessionMap.put(ref.push().getKey(), session);
-                            ref.updateChildren(sessionMap);
+                final String date = (jourr + "/" + moiss + "/" + annee);
 
-                            addTemps.getText().clear();
-                            addRessenti.getText().clear();
 
-                        }
-                    }
-                });
+                final String temps = addTemps.getText().toString();
+                final String ressenti = addRessenti.getText().toString();
+
+
+                if (temps.isEmpty()) {
+                    addTemps.setError("Veuillez remplir ce champ");
+                    addTemps.setFocusable(true);
+                } else if (ressenti.isEmpty() || Integer.parseInt(addRessenti.getText().toString()) > 9) {
+                    addRessenti.setError("Veuillez remplir ce champ avec une valeur adpatée");
+                    addRessenti.setFocusable(true);
+                } else {
+                    Session session = new Session(
+                            date,
+                            temps,
+                            ressenti
+                    );
+                    HashMap sessionMap = new HashMap();
+                    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("users").child(mAuth.getCurrentUser().getUid()).child("mesSports").child(key).child("mesSessions");
+                    sessionMap.put(ref.push().getKey(), session);
+                    ref.updateChildren(sessionMap);
+
+                    addTemps.getText().clear();
+                    addRessenti.getText().clear();
+
+                }
             }
         });
 
