@@ -1,21 +1,18 @@
 package com.example.voltagang;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.voltagang.Model.FiveKM;
 import com.example.voltagang.Model.Gender;
@@ -23,20 +20,15 @@ import com.example.voltagang.Model.Marathon;
 import com.example.voltagang.Model.SemiMarathon;
 import com.example.voltagang.Model.Session;
 import com.example.voltagang.Model.TenKM;
-
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
-import java.util.List;
 
 
 public class AnalyseSportActivity extends AppCompatActivity {
@@ -148,20 +140,15 @@ public class AnalyseSportActivity extends AppCompatActivity {
         btnTip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mRef.child("users");
-                mRef.child(mAuth.getCurrentUser().getUid());
-                mRef.child("mesSports");
-                mRef.child(key);
-                mRef.child("mesSessions");
-                mRef.addValueEventListener(new ValueEventListener() {
+                mRef.child("users").child(mAuth.getCurrentUser().getUid()).child("mesSports").child(key).child("mesSessions").limitToLast(2).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         int z = 0;
-                        List<Session> list = new ArrayList<>();
+                        Session[] array = new Session[2];
 
                         for (DataSnapshot child : dataSnapshot.getChildren()) {
-                            if (child.exists()) {
-                                z++;
+                            if (child.child("date").exists() && child.child("temps").exists() && child.child("ressenti").exists()) {
+                                Log.i("nb Z", "Bonjour je suis la " + z);
                                 laDate.setText("Date: " + child.child("date").getValue().toString());
                                 leTemps.setText("Time: " + child.child("temps").getValue().toString());
                                 leRessenti.setText("Feeling: " + child.child("ressenti").getValue().toString());
@@ -169,7 +156,8 @@ public class AnalyseSportActivity extends AppCompatActivity {
                                 cons.setDate(child.child("date").getValue().toString());
                                 cons.setRessenti(child.child("ressenti").getValue().toString());
                                 cons.setTemps(child.child("temps").getValue().toString());
-                                list.add(cons);
+                                array[z] = cons;
+                                z++;
                             }
 
                         }
@@ -178,26 +166,9 @@ public class AnalyseSportActivity extends AppCompatActivity {
                         } else {
                             //ici on impl les conseils
                             TvTip.setText("ouiiiii le conseil merci trop bien");
-                            Session last = null;
-                            Session last2 = null;
-                            for (Session cons : list) {
-                                if (last == null) {
-                                    last = cons;
-                                } else if (last == null) {
-                                    last2 = cons;
-                                } else if (last != null && last2 != null && cons != null) {
-                                    if (Integer.getInteger(cons.getDate()) > Integer.getInteger(last.getDate())) {
-                                        last = cons;
-                                    } else if (Integer.getInteger(cons.getDate()) > Integer.getInteger(last2.getDate())) {
-                                        last2 = cons;
-                                    }
-                                    if (Integer.getInteger(last.getDate()) < Integer.getInteger(last2.getDate())) {
-                                        Session buf = last;
-                                        last = last2;
-                                        last2 = buf;
-                                    }
-                                }
-                            }
+                            Session last = array[1];
+                            Session last2 = array[0];
+
                             if(last == null){
                                 Log.i("null", "last est null");
                             }
@@ -207,30 +178,45 @@ public class AnalyseSportActivity extends AppCompatActivity {
 
                             final Session finalLast = last;
                             final Session finalLast1 = last2;
-                            mRef.child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                            final Gender gender = null;
+                            mRef.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    Gender gender = dataSnapshot.getValue(Gender.class);
+                                    Gender gender = null;
+                                    if(dataSnapshot.child("sexe").exists()) {
+                                        Log.i("Yes","Exist cest deja ca");
+                                        Log.i("Contenu de sexe", dataSnapshot.child("sexe").getValue().toString());
+                                        if (dataSnapshot.child("sexe").getValue() == Gender.Male.toString()) {
+                                            gender = Gender.Male;
+                                        } else {
+                                            gender = Gender.Female;
+                                        }
+                                    }
                                     int perf = new Integer(finalLast.getTemps());
-                                    switch (key) {
-                                        case "Marathon":
-                                            TvTip.setText(Marathon.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
-                                            break;
-                                        case "10KM":
-                                            TvTip.setText(TenKM.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
-                                            break;
-                                        case "2,5KM":
-                                            break;
-                                        case "5KM":
-                                            TvTip.setText(FiveKM.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
-                                            break;
-                                        case "20KM":
-                                            break;
-                                        case "Semi-Marathon":
-                                            TvTip.setText(SemiMarathon.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
-                                            break;
-                                        case "50KM":
-                                            break;
+                                    if(gender == null){
+                                        Log.i("C'est la mort", "null");
+                                    }
+                                    else {
+                                        switch (key) {
+                                            case "Marathon":
+                                                TvTip.setText(Marathon.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
+                                                break;
+                                            case "10KM":
+                                                TvTip.setText(TenKM.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
+                                                break;
+                                            case "2,5KM":
+                                                break;
+                                            case "5KM":
+                                                TvTip.setText(FiveKM.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
+                                                break;
+                                            case "20KM":
+                                                break;
+                                            case "Semi-Marathon":
+                                                TvTip.setText(SemiMarathon.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
+                                                break;
+                                            case "50KM":
+                                                break;
+                                        }
                                     }
                                 }
 
@@ -238,8 +224,9 @@ public class AnalyseSportActivity extends AppCompatActivity {
                                 public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                 }
-
                             });
+
+
                         }
                     }
 

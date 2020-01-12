@@ -1,7 +1,6 @@
 package com.example.voltagang.Model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Session {
@@ -44,5 +43,25 @@ public class Session {
 
     public void setRessenti(String ressenti) {
         this.ressenti = ressenti;
+    }
+
+
+    public boolean isAfter(Session autre){
+        boolean res = false;
+        char[]  array = this.date.toCharArray();
+        char[]  other = autre.date.toCharArray();
+        int tis = 0;
+        int aute = 0;
+        for(int i = 0; i < array.length; i++){
+            if(array[i] == '/');
+            else{
+                tis +=  Character.getNumericValue(array[i]);
+                aute += Character.getNumericValue(other[i]);
+            }
+        }
+        if(tis > aute){
+            res = true;
+        }
+        return res;
     }
 }
