@@ -67,19 +67,19 @@ public class Stamina {
 		int unit = res - tens*10 - hundred*100 - thousand*1000;
 		switch(thousand) {
 		case 0:
-			sb.append(R.string.avg1);
+			sb.append(context.getResources().getString(R.string.avg1));
 			break;
 		case 2:
-			sb.append(R.string.avg2);
+			sb.append(context.getResources().getString(R.string.avg2));
 			break;
 		case 4:
-			sb.append(R.string.avg3);
+			sb.append(context.getResources().getString(R.string.avg3));
 			break;
 		case 6:
-			sb.append(R.string.avg4);
+			sb.append(context.getResources().getString(R.string.avg4));
 			break;
 		case 8:
-			sb.append(R.string.avg5);
+			sb.append(context.getResources().getString(R.string.avg5));
 			break;
 		}
 
@@ -87,19 +87,19 @@ public class Stamina {
 		
 		switch(hundred) {
 		case 0:
-			sb.append(R.string.perf1);
+			sb.append(context.getResources().getString(R.string.perf1));
 			break;
 		case 2:
-			sb.append(R.string.perf2);
+			sb.append(context.getResources().getString(R.string.perf2));
 			break;
 		case 4:
-			sb.append(R.string.perf3);
+			sb.append(context.getResources().getString(R.string.perf3));
 			break;
 		case 6:
-			sb.append(R.string.perf4);
+			sb.append(context.getResources().getString(R.string.perf4));
 			break;
 		case 8:
-			sb.append(R.string.perf5);
+			sb.append(context.getResources().getString(R.string.perf5));
 			break;
 		}
 		
@@ -107,34 +107,34 @@ public class Stamina {
 		
 		switch(tens) {
 		case 0:
-			sb.append(R.string.feel0);
+			sb.append(context.getResources().getString(R.string.feel0));
 			break;
 		case 1:
-			sb.append(R.string.feel1);
+			sb.append(context.getResources().getString(R.string.feel1));
 			break;
 		case 2:
-			sb.append(R.string.feel2);
+			sb.append(context.getResources().getString(R.string.feel2));
 			break;
 		case 3:
-			sb.append(R.string.feel3);
+			sb.append(context.getResources().getString(R.string.feel3));
 			break;
 		case 4:
-			sb.append(R.string.feel4);
+			sb.append(context.getResources().getString(R.string.feel4));
 			break;
 		case 5:
-			sb.append(R.string.feel5);
+			sb.append(context.getResources().getString(R.string.feel5));
 			break;
 		case 6:
-			sb.append(R.string.feel6);
+			sb.append(context.getResources().getString(R.string.feel6));
 			break;
 		case 7:
-			sb.append(R.string.feel7);
+			sb.append(context.getResources().getString(R.string.feel7));
 			break;
 		case 8:
-			sb.append(R.string.feel8);
+			sb.append(context.getResources().getString(R.string.feel8));
 			break;
 		case 9:
-			sb.append(R.string.feel9);
+			sb.append(context.getResources().getString(R.string.feel9));
 			break;
 		}
 		
@@ -142,19 +142,19 @@ public class Stamina {
 		
 		switch(unit) {
 		case 0:
-			sb.append(R.string.feelcmp1);
+			sb.append(context.getResources().getString(R.string.feelcmp1));
 			break;
 		case 2:
-			sb.append(R.string.feelcmp2);
+			sb.append(context.getResources().getString(R.string.feelcmp2));
 			break;
 		case 4:
-			sb.append(R.string.feelcmp3);
+			sb.append(context.getResources().getString(R.string.feelcmp3));
 			break;
 		case 6:
-			sb.append(R.string.feelcmp4);
+			sb.append(context.getResources().getString(R.string.feelcmp4));
 			break;
 		case 8:
-			sb.append(R.string.feelcmp5);
+			sb.append(context.getResources().getString(R.string.feelcmp5));
 			break;
 		}
 		return sb.toString();

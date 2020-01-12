@@ -60,6 +60,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "633615408052-v85qahondsf8qapmeeqkrirja8pi7jqd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.voltagang",
+            "certificate_hash": "eb3f98889971a0b31520e35ee1cca4bac0663b6c"
+          }
+        },
+        {
           "client_id": "633615408052-2tgsmr5ndcuc6jbr5f5o563doln28m94.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
