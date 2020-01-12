@@ -41,12 +41,12 @@
         android:id="@+id/disconnectButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Déconnexion"
         android:layout_below="@+id/fr"
+        android:layout_marginLeft="80dp"
         android:layout_marginTop="100dp"
 
-        android:layout_marginLeft="80dp"
         android:background="@drawable/btncustomsignup"
+        android:text="@string/disconnect"
         android:textColor="@color/lightorange"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 </RelativeLayout>

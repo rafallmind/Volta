@@ -1,18 +1,16 @@
 package com.example.voltagang.Fragment;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.voltagang.Adapter.SportAdapter;
 import com.example.voltagang.Model.Sport;
@@ -57,6 +55,7 @@ public class AddSportFragment extends Fragment {
         return root;
     }
 
+
     private void chargerRecyclerView(List<Sport> sports){
         mSportAdapter = new SportAdapter(getContext(), sports);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -84,4 +83,6 @@ public class AddSportFragment extends Fragment {
         mSports.add(s3);
         return mSports;
     }
+
+
 }

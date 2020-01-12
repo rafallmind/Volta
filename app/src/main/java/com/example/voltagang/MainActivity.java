@@ -1,11 +1,11 @@
 package com.example.voltagang;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.FrameLayout;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.example.voltagang.Fragment.AddSportFragment;
 import com.example.voltagang.Fragment.AnalyseFragment;
@@ -90,4 +90,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+
+
 }

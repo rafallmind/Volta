@@ -1,10 +1,5 @@
 package com.example.voltagang.Fragment;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -16,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.example.voltagang.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -61,17 +60,17 @@ public class ProfilFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 pseudoProfil.setText(dataSnapshot.child("pseudo").getValue().toString());
-                ageProfil.setText("Age : " + dataSnapshot.child("age").getValue().toString());
-                sexeProfil.setText("Sexe : " + dataSnapshot.child("sexe").getValue().toString());
+                ageProfil.setText(getContext().getResources().getText(R.string.agehint) + " : " + dataSnapshot.child("age").getValue().toString());
+                sexeProfil.setText(getContext().getResources().getText(R.string.sex) + " : " + dataSnapshot.child("sexe").getValue().toString());
                 if(dataSnapshot.child("poids").exists()){
-                    poidsProfil.setText("Poids : " + dataSnapshot.child("poids").getValue().toString());
+                    poidsProfil.setText(getContext().getResources().getText(R.string.weight) + " : " + dataSnapshot.child("poids").getValue().toString());
                 } else {
-                    poidsProfil.setText("Poids : Non renseigné");
+                    poidsProfil.setText(getContext().getResources().getText(R.string.weight) + " : " + getContext().getResources().getText(R.string.not_filled_out));
                 }
                 if(dataSnapshot.child("taille").exists()){
-                    tailleProfil.setText("Taille : " + dataSnapshot.child("taille").getValue().toString());
+                    tailleProfil.setText(getContext().getResources().getText(R.string.height) + " : " + dataSnapshot.child("taille").getValue().toString());
                 } else {
-                    tailleProfil.setText("Taille : Non renseigné");
+                    tailleProfil.setText(getContext().getResources().getText(R.string.height) + " : " + getContext().getResources().getText(R.string.not_filled_out));
                 }
             }
 
