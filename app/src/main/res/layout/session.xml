@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/sessions"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="1"
     android:background="@color/orange2"
     android:gravity="center"
     android:orientation="vertical">
@@ -14,6 +14,7 @@
         android:id="@+id/lastSession"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="@string/last_session"
         android:textAlignment="center"
         android:textColor="@color/white"
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textColor="@color/white"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/leTemps"
@@ -33,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textColor="@color/white"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/leRessenti"
@@ -41,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textColor="@color/white"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/addTime"
@@ -61,80 +62,79 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
+    <EditText
+        android:id="@+id/addFeeling"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_weight="1"
+        android:background="@drawable/customedittext"
+        android:ems="10"
+        android:hint="@string/feelinghint"
+        android:inputType="number"
+        android:paddingLeft="15dp"
+        android:textColor="@color/lightorange"
+        android:textColorHint="@color/lightorange"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1"
+        android:max="9"
+        android:progress="1"
+        android:progressTint="@color/black"
+        android:thumbTint="@color/white" />
+
+    <Button
+        android:id="@+id/btnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_weight="1"
+        android:background="@drawable/sessionbtn2"
+        android:text="@string/addperf"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnTip"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="40dp"
+        android:layout_weight="1"
+        android:background="@drawable/sessionbtn"
+        android:text="@string/asktips"
+        android:textSize="24sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/addFeeling"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp"
-            android:layout_weight="1"
-            android:background="@drawable/customedittext"
-            android:ems="10"
-            android:hint="@string/feelinghint"
-            android:inputType="number"
-            android:paddingLeft="15dp"
-            android:textColor="@color/lightorange"
-            android:textColorHint="@color/lightorange"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <SeekBar
-            android:id="@+id/seekBar"
+        <TextView
+            android:id="@+id/TvTip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:max="9"
-            android:progress="1"
-            android:thumbTint="@color/white"
-            android:progressTint="@color/black"
-            android:layout_marginBottom="20dp"/>
+            android:text=" "
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="normal" />
+
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_weight="1"
-        android:text="@string/addperf"
-        android:textSize="24sp"
-        android:background="@drawable/sessionbtn2"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"/>
-
-
-    <Button
-        android:id="@+id/btnTip"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_weight="1"
-        android:text="@string/asktips"
-        android:textSize="24sp"
-        android:background="@drawable/sessionbtn"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="15dp"/>
-
-    <TextView
-        android:id="@+id/TvTip"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="50dp"
-        android:layout_weight="1"
-        android:text=" "
-        android:textColor="@color/black"
-        android:textSize="12sp"
-        android:textStyle="normal" />
-
-
 
 
 </LinearLayout>
