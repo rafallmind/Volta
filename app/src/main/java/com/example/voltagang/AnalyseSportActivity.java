@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.voltagang.Model.FiftyKM;
 import com.example.voltagang.Model.FiveKM;
 import com.example.voltagang.Model.Gender;
 import com.example.voltagang.Model.Marathon;
@@ -22,7 +23,6 @@ import com.example.voltagang.Model.Session;
 import com.example.voltagang.Model.Stamina;
 import com.example.voltagang.Model.TenKM;
 import com.example.voltagang.Model.TwoPointFiveKM;
-import  com.example.voltagang.Model.FiftyKM;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
