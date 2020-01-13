@@ -77,7 +77,7 @@
     <string name="changeheight">Change height</string>
     <string name="hintpseudo">New username</string>
     <string name="hintage">New age</string>
-    <string name="hintweight">New weight</string>
+    <string name="hintweight">New weight (in kg)</string>
     <string name="hintheight">New height (in cm)</string>
 
 </resources>

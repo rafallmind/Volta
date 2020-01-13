@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fragment.ChronoFragment">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -13,60 +14,64 @@
             android:id="@+id/chronotext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/chrono"
-            android:layout_marginTop="120dp"
-            android:layout_marginBottom="45dp"
+            android:layout_marginTop="75dp"
             android:text="@string/chronotext"
             android:textAlignment="center"
             android:textColor="@color/lightorange"
             android:textSize="25sp"
-            android:textStyle="bold" />
-
-        <Chronometer
-            android:id="@+id/chrono"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="157dp"
-            android:layout_marginRight="157dp"
-            android:layout_marginBottom="400dp"
-            android:textSize="30sp" />
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/start"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/chrono"
-            android:layout_marginTop="-280dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/sessionbtn"
             android:text="@string/chronostart"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/sessionbtn"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chrono" />
 
         <Button
             android:id="@+id/stop"
             android:layout_width="100dp"
             android:layout_height="50dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/sessionbtn"
             android:text="@string/chronopause"
-            android:layout_below="@+id/chrono"
-            android:layout_toRightOf="@+id/start"
-            android:layout_marginTop="-280dp"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/sessionbtn"/>
+            app:layout_constraintEnd_toStartOf="@+id/reset"
+            app:layout_constraintStart_toEndOf="@+id/start"
+            app:layout_constraintTop_toBottomOf="@+id/chrono" />
 
         <Button
             android:id="@+id/reset"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/chrono"
-            android:layout_toRightOf="@+id/stop"
-            android:layout_marginTop="-280dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="25dp"
+            android:layout_marginRight="25dp"
+            android:background="@drawable/sessionbtn"
             android:text="@string/chronoreset"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/sessionbtn"/>
-</RelativeLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chrono" />
+
+        <Chronometer
+            android:id="@+id/chrono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/chronotext" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </RelativeLayout>
 
 </FrameLayout>

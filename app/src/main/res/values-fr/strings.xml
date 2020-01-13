@@ -62,6 +62,6 @@
     <string name="changeheight">Changer de taille</string>
     <string name="hintpseudo">Nouveau pseudo</string>
     <string name="hintage">Nouvel age</string>
-    <string name="hintweight">Nouveau poids</string>
+    <string name="hintweight">Nouveau poids (en kg)</string>
     <string name="hintheight">Nouvelle taille (en cm)</string>
 </resources>
