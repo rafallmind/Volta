@@ -70,14 +70,14 @@ public class AddSportFragment extends Fragment {
         Sport s1 = new Sport("10KM", getResources().getString(R.string.inter1), R.drawable.icinter1);
         Sport s2 = new Sport("5KM",getResources().getString(R.string.deb2), R.drawable.icdeb2);
         Sport s3 = new Sport("2,5KM", getResources().getString(R.string.deb1), R.drawable.icdeb1);
-        Sport s4 = new Sport("20KM", getResources().getString(R.string.inter2), R.drawable.icinter2);
-        Sport s5 = new Sport("Semi-Marathon", getResources().getString(R.string.inter3), R.drawable.icinter3);
+        //Sport s4 = new Sport("20KM", getResources().getString(R.string.inter2), R.drawable.icinter2);
+        Sport s5 = new Sport("Semi-Marathon", getResources().getString(R.string.inter2), R.drawable.icinter3);
         Sport s6 = new Sport("Marathon", getResources().getString(R.string.exp1), R.drawable.icexpert1);
         Sport s7 = new Sport("50KM", getResources().getString(R.string.exp2), R.drawable.icexpert2);
         mSports.add(s7);
         mSports.add(s6);
         mSports.add(s5);
-        mSports.add(s4);
+        //mSports.add(s4);
         mSports.add(s1);
         mSports.add(s2);
         mSports.add(s3);

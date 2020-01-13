@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="0dp"
+        android:background="@color/transparent"
         android:gravity="bottom"
         app:active_item_color="@color/white"
         app:centre_button_color="@color/white"
@@ -27,7 +28,6 @@
         app:space_background_color="@color/lightorange"
         app:space_item_icon_only_size="@dimen/space_item_icon_only_size"
         app:space_item_icon_size="@dimen/space_item_icon_default_size"
-        app:space_item_text_size="@dimen/space_item_text_default_size"
-        android:background="@color/transparent"/>
+        app:space_item_text_size="@dimen/space_item_text_default_size" />
 
 </RelativeLayout>

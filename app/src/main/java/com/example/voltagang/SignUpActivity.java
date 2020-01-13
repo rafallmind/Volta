@@ -69,8 +69,8 @@ public class SignUpActivity extends AppCompatActivity {
 
         //Définition des différents sexes
         final ArrayList<String> listSexe = new ArrayList<>();
-        listSexe.add("Men");
-        listSexe.add("Women");
+        listSexe.add(getApplicationContext().getResources().getString(R.string.man));
+        listSexe.add(getApplicationContext().getResources().getString(R.string.woman));
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listSexe);
         listeSignUp.setAdapter(arrayAdapter);
 

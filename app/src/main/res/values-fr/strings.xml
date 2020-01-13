@@ -28,7 +28,7 @@
     <string name="feelcmp4">Tu as fait une session un peu moins intensive, si tes résultats sont similaires à la dernière session, surpasse toi pour t\'améliorer !</string>
     <string name="feelcmp5">Tu as fait une session moins intensive, améliore tes résultats en faisant une session plus intensive !</string>
     <string name="feeling">Ressenti :</string>
-    <string name="feelinghint">Ressenti (de 0 à 9)</string>
+    <string name="feelinghint">Ressenti (9 : difficile)</string>
     <string name="inter1">Intermédiaire 1</string>
     <string name="inter2">Intermédiaire 2</string>
     <string name="inter3">Intermédiaire 3</string>
@@ -54,4 +54,14 @@
     <string name="sex">Sexe</string>
     <string name="not_filled_out">Non renseigné</string>
     <string name="height">Taille</string>
+    <string name="man">Homme</string>
+    <string name="woman">Femme</string>
+    <string name="changepseudo">Changer de pseudo</string>
+    <string name="changeage">Changer d\'âge</string>
+    <string name="changeweight">Changer de poids</string>
+    <string name="changeheight">Changer de taille</string>
+    <string name="hintpseudo">Nouveau pseudo</string>
+    <string name="hintage">Nouvel age</string>
+    <string name="hintweight">Nouveau poids</string>
+    <string name="hintheight">Nouvelle taille (en cm)</string>
 </resources>

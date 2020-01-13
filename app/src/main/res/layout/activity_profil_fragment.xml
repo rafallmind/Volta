@@ -34,33 +34,33 @@
             android:id="@+id/ageProfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="18sp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:text="@string/agehint"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/poidsProfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="18sp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:text="@string/weight"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tailleProfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="18sp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:text="@string/height"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/sexeProfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textSize="18sp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:text="@string/sex"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

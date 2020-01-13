@@ -83,7 +83,7 @@ public class ProfilFragment extends Fragment {
         modifyProfilButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String options[] = {"Changer de pseudo", "Changer d'age", "Changer de poids", "Changer de taille"};
+                String options[] = {getContext().getResources().getString(R.string.changepseudo), getContext().getResources().getString(R.string.changeage), getContext().getResources().getString(R.string.changeweight), getContext().getResources().getString(R.string.changeheight)};
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 builder.setTitle("Edition du profil");
                 builder.setItems(options, new DialogInterface.OnClickListener() {
@@ -107,12 +107,12 @@ public class ProfilFragment extends Fragment {
     }
 
     private void changerDePseudo(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle("Changer de pseudo");
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle(getContext().getResources().getString(R.string.changepseudo));
         LinearLayout linearLayout = new LinearLayout(getActivity());
         linearLayout.setPadding(10,10,10,10);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         final EditText editText = new EditText(getActivity());
-        editText.setHint("Nouveau pseudo...");
+        editText.setHint(getContext().getResources().getString(R.string.hintpseudo));
         linearLayout.addView(editText);
         builder.setView(linearLayout);
         builder.setPositiveButton("Changer", new DialogInterface.OnClickListener() {
@@ -132,12 +132,13 @@ public class ProfilFragment extends Fragment {
     }
 
     private void changerDAge(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle("Changer d'age");
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle(getContext().getResources().getString(R.string.changeage));
         LinearLayout linearLayout = new LinearLayout(getActivity());
         linearLayout.setPadding(10,10,10,10);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         final EditText editText = new EditText(getActivity());
-        editText.setHint("Nouvelle age...");
+        editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        editText.setHint(getContext().getResources().getString(R.string.hintage));
         editText.setInputType(InputType.TYPE_DATETIME_VARIATION_DATE);
         linearLayout.addView(editText);
         builder.setView(linearLayout);
@@ -158,12 +159,13 @@ public class ProfilFragment extends Fragment {
     }
 
     private void changerDePoids(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle("Changer de poids");
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle(getContext().getResources().getString(R.string.changeweight));
         LinearLayout linearLayout = new LinearLayout(getActivity());
         linearLayout.setPadding(10,10,10,10);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         final EditText editText = new EditText(getActivity());
-        editText.setHint("Nouveau poids...");
+        editText.setInputType(InputType.TYPE_CLASS_NUMBER);
+        editText.setHint(getContext().getResources().getString(R.string.hintweight));
         editText.setInputType(InputType.TYPE_DATETIME_VARIATION_DATE);
         linearLayout.addView(editText);
         builder.setView(linearLayout);
@@ -184,13 +186,13 @@ public class ProfilFragment extends Fragment {
     }
 
     private void changerDeTaille(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle("Changer de taille (en cm)");
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity()).setTitle(getContext().getResources().getString(R.string.changeheight));
         LinearLayout linearLayout = new LinearLayout(getActivity());
         linearLayout.setPadding(10,10,10,10);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         final EditText editText = new EditText(getActivity());
-        editText.setHint("Nouvelle taille...");
-        editText.setInputType(InputType.TYPE_DATETIME_VARIATION_DATE);
+        editText.setHint(getContext().getResources().getString(R.string.hintheight));
+        editText.setInputType(InputType.TYPE_CLASS_NUMBER);
         linearLayout.addView(editText);
         builder.setView(linearLayout);
         builder.setPositiveButton("Changer", new DialogInterface.OnClickListener() {

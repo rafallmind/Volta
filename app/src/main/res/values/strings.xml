@@ -33,7 +33,7 @@
     <string name="time">Time : </string>
     <string name="feeling">Feeling : </string>
     <string name="timehint">Duration (in minutes)</string>
-    <string name="feelinghint">Feeling (from 0 to 9)</string>
+    <string name="feelinghint">Feeling (9 : difficult)</string>
     <string name="asktips">Ask for tips</string>
     <string name="addperf">Add performance</string>
 
@@ -69,5 +69,15 @@
     <string name="height">Height</string>
     <string name="sex">Sex</string>
     <string name="not_filled_out">Not filled out</string>
+    <string name="man">Man</string>
+    <string name="woman">Woman</string>
+    <string name="changepseudo">Change username</string>
+    <string name="changeage">Change age</string>
+    <string name="changeweight">Change weight</string>
+    <string name="changeheight">Change height</string>
+    <string name="hintpseudo">New username</string>
+    <string name="hintage">New age</string>
+    <string name="hintweight">New weight</string>
+    <string name="hintheight">New height (in cm)</string>
 
 </resources>

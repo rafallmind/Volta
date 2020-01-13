@@ -21,6 +21,8 @@ import com.example.voltagang.Model.SemiMarathon;
 import com.example.voltagang.Model.Session;
 import com.example.voltagang.Model.Stamina;
 import com.example.voltagang.Model.TenKM;
+import com.example.voltagang.Model.TwoPointFiveKM;
+import  com.example.voltagang.Model.FiftyKM;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -170,7 +172,6 @@ public class AnalyseSportActivity extends AppCompatActivity {
                             TvTip.setText("Not enough data");
                         } else {
                             //ici on impl les conseils
-                            TvTip.setText("ouiiiii le conseil merci trop bien");
                             Session last = array[1];
                             Session last2 = array[0];
 
@@ -210,6 +211,7 @@ public class AnalyseSportActivity extends AppCompatActivity {
                                                 TvTip.setText(TenKM.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
                                                 break;
                                             case "2,5KM":
+                                                TvTip.setText(TwoPointFiveKM.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
                                                 break;
                                             case "5KM":
                                                 TvTip.setText(FiveKM.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
@@ -220,6 +222,7 @@ public class AnalyseSportActivity extends AppCompatActivity {
                                                 TvTip.setText(SemiMarathon.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
                                                 break;
                                             case "50KM":
+                                                TvTip.setText(FiftyKM.comparerPerformance(gender, perf, new Integer(finalLast.getRessenti()), new Integer(finalLast1.getTemps()), new Integer(finalLast1.getRessenti())));
                                                 break;
                                         }
                                     }
